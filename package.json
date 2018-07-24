@@ -1,0 +1,11 @@
+{
+  "name": "react-workbench",
+  "version": "1.0.0",
+  "description": "A repo to house portfolio pieces, a sandbox area, and notes around the React ecosystem.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Hillman",
+  "license": "ISC"
+}
