@@ -1,5 +1,6 @@
 import { configure } from "@storybook/react";
-import "../src/stylesheets/styles.scss";
+import "./base.css";
+import "../src/stylesheets/styles";
 
 const req = require.context("../src/stories/", true, /\.js$/)
 

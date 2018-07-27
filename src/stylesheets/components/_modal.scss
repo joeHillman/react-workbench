@@ -1,0 +1,40 @@
+@import "./z-index";
+
+.modal {
+  &__backdrop {
+    position: fixed;
+    z-index: $modal-backdrop;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.7);
+  }
+
+  &__content {
+    position: relative;
+    z-index: $modal-content;
+    background: white;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  &__title {
+    padding: 20px;
+    background: #d7d7d7;
+  }
+
+  &__heading {
+    margin: 0;
+  }
+
+  &__body {
+    padding: 20px;
+  }
+
+  &__buttons {
+    padding: 0 20px 20px;
+    // won't need flexbox, deeper support
+    text-align: right;
+  }
+}
