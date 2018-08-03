@@ -1,6 +1,6 @@
 @import "./z-index";
 
-.modal {
+.c-modal {
   &__backdrop {
     position: fixed;
     z-index: $modal-backdrop;

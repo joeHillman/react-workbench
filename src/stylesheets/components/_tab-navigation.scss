@@ -1,0 +1,11 @@
+.c-tab {
+  background: none;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+
+  &:hover {
+    background: #ccc;
+    border-bottom-color: #000;
+  }
+}

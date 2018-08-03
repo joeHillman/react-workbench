@@ -26,19 +26,19 @@ class Modal extends Component {
 
     const modalContent = () => {
       return (
-        <div className="modal__container">
-          <div className="modal__backdrop" onClick={this.toggleOpen}></div>
-          <div className="modal__content">
+        <div className="c-modal__container">
+          <div className="c-modal__backdrop" onClick={this.toggleOpen}></div>
+          <div className="c-modal__content">
             {heading ?
-              <div className="modal__title">
-                <h3 className="modal__heading">{heading}</h3>
+              <div className="c-modal__title">
+                <h3 className="c-modal__heading">{heading}</h3>
               </div>
               : null
             }
-            <p className="modal__body">
+            <p className="c-modal__body">
               {bodyString ? bodyString : children}
             </p>
-            <div className="modal__buttons">
+            <div className="c-modal__buttons">
               <Button label="Cancel" onClick={this.toggleOpen}/>
               <Button primaryStyle label="Proceed" onClick={this.lastModalStep}/>
             </div>
