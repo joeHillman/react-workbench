@@ -10,8 +10,10 @@ The active tab state is also used to render the content of that tab. The content
 
 This component was initially built with a content render component which used a switch statement and prop list to render the correct content but I chose later on to include the content with the menu items because it scales up easily and you likely would have at least two tabs with an unknown number for the total.
 
-Below are links to the components that power this component.
+Below are links to the files that power this component.
 
-Tab:
-Tab Render:
-Tab Container:
+[Tab](https://github.com/joeHillman/react-workbench/blob/master/src/components/TabNavigation/Tab.js)
+
+[Tab Render](https://github.com/joeHillman/react-workbench/blob/master/src/components/TabNavigation/TabRender.js)
+
+[Tab Container](https://github.com/joeHillman/react-workbench/blob/master/src/components/TabNavigation/TabContainer.js)

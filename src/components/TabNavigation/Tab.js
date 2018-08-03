@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes, { bool, func, string } from "prop-types";
 
 const Tab = ({ isActive, label, onClick }) => {
