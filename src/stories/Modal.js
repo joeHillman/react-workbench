@@ -1,11 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { withNotes } from "@storybook/addon-notes";
+
+import Notes from "./markdown/Modal.md";
 import Modal from '../components/Modal';
-import ReactPortal from '../components/ReactPortal';
 
 storiesOf('Components', module)
-  .add('Modal', () => {
+  .add('Modal', withNotes(Notes)(() => {
     return (
       <div>
         <div>
@@ -16,4 +18,4 @@ storiesOf('Components', module)
         </div>
       </div>
     );
-});
+}));

@@ -2,13 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withNotes } from "@storybook/addon-notes";
-import TabNotes from "./markdown/TabContainer.md";
+
+import Notes from "./markdown/TabContainer.md";
 import TabContainer from '../components/TabNavigation/TabContainer';
 
 import { panelOne, panelTwo, panelThree } from "./TestData/TabNavData";
 
 storiesOf('Components', module)
-  .add('Tab Container', withNotes(TabNotes)(() => {
+  .add('Tab Container', withNotes(Notes)(() => {
     const tabMenu = [
       {
         label: "Tab One",

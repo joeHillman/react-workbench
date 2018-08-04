@@ -22,7 +22,7 @@ class Modal extends Component {
   }
 
   render() {
-    let { bodyString, children, heading, openLabel } = this.props;
+    let { bodyString, children, confirmModal, heading, openLabel } = this.props;
 
     const modalContent = () => {
       return (
@@ -44,7 +44,8 @@ class Modal extends Component {
             </div>
           </div>
         </div>
-      )};
+      )
+    };
 
     return (
       <div>
