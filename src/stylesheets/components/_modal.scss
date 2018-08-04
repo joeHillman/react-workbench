@@ -1,6 +1,12 @@
 @import "./z-index";
 
 .c-modal {
+  &__container {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
   &__backdrop {
     position: fixed;
     z-index: $modal-backdrop;
