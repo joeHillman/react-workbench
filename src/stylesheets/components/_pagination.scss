@@ -1,0 +1,48 @@
+.c-pager__button {
+  background: none;
+  color: blue;
+
+  &:hover,
+  &:focus {
+    background: #f7f7f7;
+  }
+
+  &--is-active {
+    background: #ddd;
+  }
+
+  & + & {
+    margin-left: 0;
+  }
+}
+
+.c-pager {
+  &__fp {
+    visibility: hidden;
+  }
+
+  &__ln {
+    visibility: visible;
+  }
+
+  &--show-fp {
+    .c-pager__fp {
+      visibility: visible;
+    }
+  }
+
+  &--hide-ln {
+    .c-pager__ln {
+      visibility: hidden;
+    }
+  }
+
+  &.paged-table-data {
+    position: relative;
+
+    .c-pager__page-buttons {
+      position: absolute;
+      bottom: -65px;
+    }
+  }
+}
