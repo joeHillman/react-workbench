@@ -24,7 +24,8 @@ class StaffListPaginationBasic extends Component {
         <tr key={index}>
           <td>{item.firstName}</td>
           <td>{item.lastName}</td>
-          <td>{item.favoriteMovie}</td>
+          <td>{item.position}</td>
+          <td>{item.clockedIn}</td>
         </tr>
       )
     });
@@ -82,7 +83,7 @@ class StaffListPaginationBasic extends Component {
         <PageSize onChange={(e) => this.pageSize(e)} pageSizes={pageSizes}/>
           <table className="c-table">
             <tbody>
-            <tr><th>First Name</th><th>Last Name</th><th>Favorite Movie</th></tr>
+            <tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Clocked In</th></tr>
             {this.pagedData(this.state.pageSize)}
             </tbody>
           </table>
