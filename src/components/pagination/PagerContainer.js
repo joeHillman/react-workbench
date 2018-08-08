@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes, { array } from "prop-types";
 
 import Page from './Page';
+import PagedData from "./PagedData";
 import PageSize from './PageSize';
 
 class PagerContainer extends Component {
@@ -13,23 +14,35 @@ class PagerContainer extends Component {
     }
   }
 
-  pagedData = (pageSize) => {
-    let sizedData = [];
-    sizedData = this.props.DATA.slice((pageSize * (this.state.activePage - 1)), (pageSize * this.state.activePage))
-    if(sizedData.length === 0) {
-      this.setState({ activePage: 1 })
-    }
-    let thisData = sizedData.map((item, index) => {
-      return (
-        <tr key={index}>
-          <td>{item.firstName}</td>
-          <td>{item.lastName}</td>
-          <td>{item.favoriteMovie}</td>
-        </tr>
-      )
-    });
-    return thisData;
-  }
+  // pagedData = (pageSize, activePage) => {
+  //   let sizedData = [];
+  //   let sizeData = () => {
+  //
+  //     sizedData = this.props.DATA.slice((pageSize * (activePage - 1)), (pageSize * activePage))
+  //   }
+  //   if(sizedData.length === 0) {
+  //     this.setState({ activePage: 1 })
+  //   }
+  //   return sizedData;
+  // }
+
+  // pagedData = (pageSize) => {
+  //   let sizedData = [];
+  //   sizedData = this.props.DATA.slice((pageSize * (this.state.activePage - 1)), (pageSize * this.state.activePage))
+  //   if(sizedData.length === 0) {
+  //     this.setState({ activePage: 1 })
+  //   }
+  //   let thisData = sizedData.map((item, index) => {
+  //     return (
+  //       <tr key={index}>
+  //         <td>{item.firstName}</td>
+  //         <td>{item.lastName}</td>
+  //         <td>{item.favoriteMovie}</td>
+  //       </tr>
+  //     )
+  //   });
+  //   return thisData;
+  // }
 
   selectPage = (index) => {
     this.setState({ activePage: index })
@@ -53,11 +66,11 @@ class PagerContainer extends Component {
 
   configureButtons = () => {
     let numberOfPages = Math.ceil(this.props.DATA.length / this.state.pageSize);
-    let placeholder = [];
-    while(placeholder.length < numberOfPages) {
-      placeholder.push("x");
+    let buttonCount = [];
+    while(buttonCount.length < numberOfPages) {
+      buttonCount.push("x");
     }
-    return placeholder;
+    return buttonCount;
   }
 
   pageButtons = () => {
@@ -74,8 +87,14 @@ class PagerContainer extends Component {
     this.setState({ pageSize: pageSizeNum })
   }
 
+  renderPageData = () => {
+    // console.log(PagedData(this.state.pageSize, this.state.activePage, this.props.DATA), "PAGEDDATA");
+    return PagedData(this.state.pageSize, this.state.activePage, this.props.DATA);
+  }
+
   render() {
-    const { classes, pageSizes } = this.props;
+   {console.log(PagedData(this.state.pageSize, this.state.activePage, this.props.DATA), "PAGEDDATA")}
+    const { classes, renderSizedData, pageSizes } = this.props;
 
     return (
       <div className={`c-pager ${classes}`}>
@@ -83,7 +102,8 @@ class PagerContainer extends Component {
           <table className="c-table">
             <tbody>
             <tr><th>First Name</th><th>Last Name</th><th>Favorite Movie</th></tr>
-              {this.pagedData(this.state.pageSize)}
+            {this.renderPageData()}
+
             </tbody>
           </table>
         <div className={`c-pager__page-buttons ${this.state.activePage !== 1 ? "c-pager--show-fp" : ""} ${this.state.activePage === (Math.ceil(this.props.DATA.length / this.state.pageSize)) ? "c-pager--hide-ln" : ""}`}>
@@ -91,6 +111,7 @@ class PagerContainer extends Component {
             <Page label="<<" onClick={() => this.selectFirst()} isActive={false}/>
             <Page label="<" onClick={() => this.selectPrevious()} isActive={false}/>
           </span>
+
           {this.pageButtons(this.configureButtons())}
           <span className="c-pager__flnp c-pager__ln">
             <Page label=">" onClick={() => this.selectNext()} isActive={false}/>
