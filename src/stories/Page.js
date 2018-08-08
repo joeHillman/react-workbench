@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withNotes } from "@storybook/addon-notes";
 
 import Notes from "./markdown/Page.md";
-import Page from '../components/Pagination/Page';
+import Page from '../components/pagination/Page';
 
 import { PageButtons } from "./TestData/PaginationData";
 
