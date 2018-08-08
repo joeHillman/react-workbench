@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { withNotes } from "@storybook/addon-notes";
 
 import Notes from "./markdown/TabContainer.md";
-import TabContainer from '../components/TabNavigation/TabContainer';
+import TabContainer from '../components/tabNavigation/TabContainer';
 
 import { panelOne, panelTwo, panelThree } from "./TestData/TabNavData";
 
