@@ -4,7 +4,6 @@ import PropTypes, { array, func } from "prop-types";
 const PageSize = ({ onChange, pageSizes }) => {
   const pageSizeOptions = (arr) => {
     const theseOptions = arr.map((item, index) => {
-      console.log(item);
       return (
         <option key={index} value={item}>{item}</option>
       );
