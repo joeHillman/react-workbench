@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes, { array } from "prop-types";
 
-import Page from "./Page";
-import PageSize from "./PageSize";
+import Page from "../components/pagination/Page";
+import PageSize from "../components/pagination/PageSize";
 
-class PagerContainer extends Component {
+class StaffListPaginationBasic extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,7 +80,12 @@ class PagerContainer extends Component {
     return (
       <div className={`c-pager ${classes}`}>
         <PageSize onChange={(e) => this.pageSize(e)} pageSizes={pageSizes}/>
-
+          <table className="c-table">
+            <tbody>
+            <tr><th>First Name</th><th>Last Name</th><th>Favorite Movie</th></tr>
+            {this.pagedData(this.state.pageSize)}
+            </tbody>
+          </table>
         <div className={`c-pager__page-buttons ${this.state.activePage !== 1 ? "c-pager--show-fp" : ""} ${this.state.activePage === (Math.ceil(this.props.DATA.length / this.state.pageSize)) ? "c-pager--hide-ln" : ""}`}>
           <span className="c-pager__flnp c-pager__fp">
             <Page label="<<" onClick={() => this.selectFirst()} isActive={false}/>
@@ -97,8 +102,8 @@ class PagerContainer extends Component {
   }
 }
 
-PagerContainer.propTypes = {
+StaffListPaginationBasic.propTypes = {
   DATA: array
 }
 
-export default PagerContainer;
+export default StaffListPaginationBasic;
