@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes, { array } from "prop-types";
+import PropTypes, { array, string } from "prop-types";
 
 import Page from "../components/pagination/Page";
 import PageSize from "../components/pagination/PageSize";
@@ -104,7 +104,9 @@ class StaffListPaginationBasic extends Component {
 }
 
 StaffListPaginationBasic.propTypes = {
-  DATA: array
+  classes: string,
+  DATA: array,
+  pageSizes: array
 }
 
 export default StaffListPaginationBasic;
