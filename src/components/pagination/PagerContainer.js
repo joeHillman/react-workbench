@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes, { array } from "prop-types";
+import PropTypes, { array, string } from "prop-types";
 
 import Page from "./Page";
 import PageSize from "./PageSize";
@@ -98,7 +98,9 @@ class PagerContainer extends Component {
 }
 
 PagerContainer.propTypes = {
-  DATA: array
+  classes: string,
+  DATA: array,
+  pageSizes: array
 }
 
 export default PagerContainer;
