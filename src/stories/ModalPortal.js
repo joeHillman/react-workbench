@@ -1,14 +1,14 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import { withNotes } from "@storybook/addon-notes";
 
 import Notes from "./markdown/ModalPortal.md";
-import ModalPortal from '../components/ModalPortal';
+import ModalPortal from "../components/ModalPortal";
 
-storiesOf('Components', module)
-.add('ModalPortal', withNotes(Notes)(() => {
+storiesOf("Components", module)
+.add("ModalPortal", withNotes(Notes)(() => {
   return (
-    <ModalPortal openLabel="Open Modal Portal" heading="Full Modal" confirmModal={action('Run Modal Confirm Function')}>The parent should be <code>div#root</code></ModalPortal>
+    <ModalPortal openLabel="Open Modal Portal" heading="Full Modal" confirmModal={action("Run Modal Confirm Function")}>The parent should be <code>div#root</code></ModalPortal>
   );
 }));

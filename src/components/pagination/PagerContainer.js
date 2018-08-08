@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes, { array } from "prop-types";
 
-import Page from './Page';
+import Page from "./Page";
 import PagedData from "./PagedData";
-import PageSize from './PageSize';
+import PageSize from "./PageSize";
 
 class PagerContainer extends Component {
   constructor(props) {

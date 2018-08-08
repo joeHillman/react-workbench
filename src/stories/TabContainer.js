@@ -1,15 +1,15 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import { withNotes } from "@storybook/addon-notes";
 
 import Notes from "./markdown/TabContainer.md";
-import TabContainer from '../components/tabNavigation/TabContainer';
+import TabContainer from "../components/tabNavigation/TabContainer";
 
 import { panelOne, panelTwo, panelThree } from "./TestData/TabNavData";
 
-storiesOf('Components', module)
-  .add('Tab Container', withNotes(Notes)(() => {
+storiesOf("Components", module)
+  .add("Tab Container", withNotes(Notes)(() => {
     const tabMenu = [
       {
         label: "Tab One",

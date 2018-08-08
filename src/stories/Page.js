@@ -1,14 +1,14 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from "react";
+import { storiesOf } from "@storybook/react";
 import { withNotes } from "@storybook/addon-notes";
 
 import Notes from "./markdown/Page.md";
-import Page from '../components/pagination/Page';
+import Page from "../components/pagination/Page";
 
 import { PageButtons } from "./TestData/PaginationData";
 
-storiesOf('Components', module)
-  .add('Pagination - Page Button', withNotes(Notes)(() => {
+storiesOf("Components", module)
+  .add("Pagination - Page Button", withNotes(Notes)(() => {
     const thesePageButtons = (arr) => {
       const theseButtons =  arr.map((item, index) => {
         return (
