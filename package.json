@@ -65,8 +65,12 @@
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "expect": "^23.5.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "sass-loader": "^7.0.3",
+    "storybook-addon-specifications": "^2.1.2",
     "style-loader": "^0.21.0"
   },
   "jest": {

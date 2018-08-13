@@ -7,6 +7,23 @@ module.exports = (baseConfig, env, defaultConfig) => {
     loaders: ["style-loader", "css-loader", "sass-loader"]
   });
   defaultConfig.resolve.extensions.push(".scss");
+  console.log(defaultConfig, "Default Config Object");
+
+  defaultConfig.externals = {
+    'jsdom': 'window',
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': 'window',
+    'react/addons': true,
+  };
+
+  // externals: {
+  //   'jsdom': 'window',
+  //   'cheerio': 'window',
+  //   'react/lib/ExecutionEnvironment': true,
+  //   'react/lib/ReactContext': 'window',
+  //   'react/addons': true,
+  // }
 
   return defaultConfig;
 };
