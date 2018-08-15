@@ -17,15 +17,17 @@ class StaffListPaginationBasic extends Component {
     let sizedData = [];
     sizedData = this.props.DATA.slice((pageSize * (this.state.activePage - 1)), (pageSize * this.state.activePage))
     if(sizedData.length === 0) {
-      this.setState({ activePage: 1 })
+      this.setState({ activePage: Math.ceil(this.props.DATA.length / this.state.pageSize) })
     }
     let thisData = sizedData.map((item, index) => {
+      let keys = Object.keys(item);
+
       return (
         <tr key={index}>
-          <td>{item.firstName}</td>
-          <td>{item.lastName}</td>
-          <td>{item.position}</td>
-          <td>{item.clockedIn}</td>
+          <td>{item[keys[0]]}</td>
+          <td>{item[keys[1]]}</td>
+          <td>{item[keys[2]]}</td>
+          <td>{item[keys[3]]}</td>
         </tr>
       )
     });

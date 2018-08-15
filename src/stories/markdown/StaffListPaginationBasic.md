@@ -1,6 +1,6 @@
 # Demonstration - Staff List Paginated - Basic
 
-The demonstration is to show the pagination components in use with a data object that is first sized by the desired page ize and is then mapped over and return the JSX to be rendered.
+The demonstration is to show the pagination components in use with a data object that is first sized by the desired page size and is then mapped over and return the JSX to be rendered.
 
 The data object here includes a list of staff in a restaurant and lists out names, positions, and if they're clocked in.
 
