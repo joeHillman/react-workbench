@@ -7,4 +7,4 @@ Two map functions ultimately drive this component to accept any number of data o
 
 Below is the link to the file that powers this component.
 
-[Table]()
+[Table](https://github.com/joeHillman/react-workbench/blob/master/src/components/Table.js)

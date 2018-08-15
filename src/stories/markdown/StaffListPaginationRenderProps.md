@@ -8,6 +8,6 @@ The data objects here includes a list of staff in a restaurant and includes name
 
 Future enhancements could include a filter to show clocked in/out employees or adding a genre key to the movie list and filter on preferred genres.
 
-Below is the link to the file that powers this component.
+Below is the link to the file that demonstrates this component.
 
 [Staff List Paginated - Render Props](https://github.com/joeHillman/react-workbench/blob/master/src/stories/StaffListPaginationRenderProps.js)

@@ -108,7 +108,9 @@ class PaginationControls extends Component {
 }
 
 PaginationControls.propTypes = {
-
+  classes: string,
+  DATA: array,
+  pageSize: array
 }
 
 export default PaginationControls;

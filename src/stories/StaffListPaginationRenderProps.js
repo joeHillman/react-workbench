@@ -3,7 +3,6 @@ import { storiesOf } from "@storybook/react";
 import { withNotes } from "@storybook/addon-notes";
 
 import Notes from "./markdown/StaffListPaginationRenderProps.md";
-import StaffListPaginationRenderProps from "../demonstrations/StaffListPaginationRenderProps";
 import PaginationControls from "../components/pagination/PaginationControls";
 
 import Table from "../components/Table";
