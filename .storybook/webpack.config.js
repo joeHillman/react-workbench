@@ -7,7 +7,6 @@ module.exports = (baseConfig, env, defaultConfig) => {
     loaders: ["style-loader", "css-loader", "sass-loader"]
   });
   defaultConfig.resolve.extensions.push(".scss");
-  console.log(defaultConfig, "Default Config Object");
 
   defaultConfig.externals = {
     'jsdom': 'window',

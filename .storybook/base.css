@@ -1,3 +1,7 @@
 #root {
   padding: 10px;
 }
+
+.demo-render-props .c-table {
+  width: 100%;
+}
