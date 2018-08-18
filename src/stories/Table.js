@@ -9,7 +9,7 @@ import Table from "../components/Table";
 import { PaginationData } from "./TestData/PaginationData";
 import { waitstaffList } from "./TestData/WaitstaffList";
 
-storiesOf("Components", module)
+storiesOf("Components/Markup Containers and Utilities", module)
   .add("Table", withNotes(Notes)(() => {
     return (
       <Table headers={["First Name", "Last Name", "Position", "Clocked In"]} DATA={waitstaffList}/>

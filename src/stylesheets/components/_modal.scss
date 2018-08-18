@@ -43,4 +43,10 @@
     // won't need flexbox, deeper support
     text-align: right;
   }
+
+  &--use-script {
+    > .pure-button {
+      display: none;
+    }
+  }
 }

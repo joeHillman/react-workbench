@@ -10,7 +10,7 @@ import Table from "../components/Table";
 import { PaginationData } from "./TestData/PaginationData";
 import { waitstaffList } from "./TestData/WaitstaffList";
 
-storiesOf("Demonstrations", module)
+storiesOf("Components/Pagination/Demonstrations", module)
   .add("Staff List - Render Props Pagination", withNotes(Notes)(() => {
     return (
       <div className="demo-render-props" style={{ display: "flex" }}>

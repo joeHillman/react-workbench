@@ -7,7 +7,7 @@ import Page from "../components/pagination/Page";
 
 import { PageButtons } from "./TestData/PaginationData";
 
-storiesOf("Components", module)
+storiesOf("Components/Pagination", module)
   .add("Pagination - Page Button", withNotes(Notes)(() => {
     const thesePageButtons = (arr) => {
       const theseButtons =  arr.map((item, index) => {
@@ -20,6 +20,7 @@ storiesOf("Components", module)
 
     return (
       <div>
+      <h3>A static harness for development purposes.</h3>
         <span className="c-pager__flnp c-pager__fp">
           <Page label="<<" onClick={() => console.log("To First Page")} isActive={false}/>
           <Page label="<" onClick={() => console.log("To Previous Page")} isActive={false}/>

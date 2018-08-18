@@ -8,7 +8,7 @@ import TabContainer from "../components/tabNavigation/TabContainer";
 
 import { panelOne, panelTwo, panelThree } from "./TestData/TabNavData";
 
-storiesOf("Components", module)
+storiesOf("Components/Tab Navigation/Demonstrations", module)
   .add("Tab Container", withNotes(Notes)(() => {
     const tabMenu = [
       {

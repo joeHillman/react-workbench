@@ -6,8 +6,8 @@ import { withNotes } from "@storybook/addon-notes";
 import Notes from "./markdown/ModalPortal.md";
 import ModalPortal from "../components/ModalPortal";
 
-storiesOf("Components", module)
-.add("ModalPortal", withNotes(Notes)(() => {
+storiesOf("Components/Modals", module)
+.add("Using a React Portal", withNotes(Notes)(() => {
   return (
     <ModalPortal openLabel="Open Modal Portal" heading="Full Modal" confirmModal={action("Run Modal Confirm Function")}>The parent should be <code>div#root</code></ModalPortal>
   );

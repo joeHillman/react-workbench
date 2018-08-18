@@ -46,7 +46,7 @@ class JS15Board extends Component {
         <p>This game is {this.state.gameIs} and you have made {this.state.numberOfMoves} moves.</p>
         <Modal openWithScript={false} openWithScript={false} onlyNotify openLabel="Pause Game" bodyString="This game is paused" toggleOpen={this.handlePause} cancelString="Return to Game"></Modal>
         <Modal openWithScript={false} openLabel="Reset Game" bodyString="Are you sure you wish to reset this game?" handleOpen={this.handlePause} handleCancel={this.handlePause} cancelString="Return to Game" confirmString="Reset this Game" confirmModal={this.handleReset}></Modal>
-        <Modal onlyNotify openWithScript={this.state.hasBeenWon} openLabel="Script Test" bodyString="A script should open this modal." handleCancel={this.handleReset} cancelString="Reset Game"></Modal>
+        <Modal onlyNotify useOpenScript openWithScript={this.state.hasBeenWon} openLabel="Script Test" bodyString="Upon winning a script will open this modal to congratulate the user." handleCancel={this.handleReset} cancelString="Reset Game"></Modal>
         <button type="button" onClick={this.testForWin}>Test Win</button>
         <p></p>
       JS Board

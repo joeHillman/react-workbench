@@ -6,7 +6,7 @@ import { withNotes } from "@storybook/addon-notes";
 import Notes from "./markdown/Tab.md";
 import Tab from "../components/tabNavigation/Tab";
 
-storiesOf("Components", module)
+storiesOf("Components/Tab Navigation", module)
   .add("Tab", withNotes(Notes)(() => {
     return (
       <div>

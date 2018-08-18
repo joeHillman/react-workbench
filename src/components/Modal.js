@@ -51,7 +51,7 @@ class Modal extends Component {
   }
 
   render() {
-    let { bodyString, cancelString, children, confirmModal, confirmString, heading, onlyNotify, openWithScript, openLabel } = this.props;
+    let { bodyString, cancelString, children, confirmModal, confirmString, heading, onlyNotify, openWithScript, openLabel, useOpenScript } = this.props;
 
     const modalContent = () => {
       return (
@@ -80,7 +80,7 @@ class Modal extends Component {
     };
 
     return (
-      <div>
+      <div className={`c-modal ${useOpenScript ? "c-modal--use-script" : ""}`}>
         <Button primaryStyle label={openLabel} onClick={this.handleOpen}/>
         {this.state.isOpen === true ? modalContent() : null}
       </div>
