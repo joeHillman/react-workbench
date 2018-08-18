@@ -10,7 +10,7 @@ import Button from "../components/Button";
 
 storiesOf("Components/Buttons", module)
   .add("Primary", withNotes(Notes)(() => {
-    const story = <Button submit primaryStyle onClick={() => {console.log("Click")}} label="Primary"/>;
+    const story = <Button submit primaryStyle classes="this-class" onClick={() => {console.log("Click")}} label="Primary"/>;
 
     specs(() => describe("Button", function() {
       let output = mount(story);

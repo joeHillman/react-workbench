@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import PropTypes, {bool, func, string} from "prop-types";
 
-const Button = ({ label, onClick, primaryStyle, submitButton }) => {
+const Button = ({ classes, label, onClick, primaryStyle, submitButton }) => {
   let buttonClasses = ["pure-button"];
   let buttonType;
 
@@ -17,11 +17,12 @@ const Button = ({ label, onClick, primaryStyle, submitButton }) => {
   }
 
   return (
-    <button className={classNames(buttonClasses)} type={buttonType} onClick={onClick}>{label}</button>
+    <button className={classNames([buttonClasses, classes])} type={buttonType} onClick={onClick}>{label}</button>
   );
 }
 
 Button.propTypes = {
+  classes: string,
   label: string.isRequired,
   onClick: func,
   primaryStyle: bool,
