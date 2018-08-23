@@ -51,7 +51,7 @@ class Modal extends Component {
   }
 
   render() {
-    let { bodyString, cancelString, children, confirmModal, confirmString, heading, onlyNotify, openWithScript, openLabel, useOpenScript } = this.props;
+    let { bodyString, cancelString, children, confirmModal, confirmString, heading, modalClasses, onlyNotify, openWithScript, openLabel, useOpenScript } = this.props;
 
     const modalContent = () => {
       return (
@@ -80,8 +80,8 @@ class Modal extends Component {
     };
 
     return (
-      <div className={`c-modal ${useOpenScript ? "c-modal--use-script" : ""}`}>
-        <Button primaryStyle label={openLabel} onClick={this.handleOpen}/>
+      <div className={`c-modal ${useOpenScript ? "c-modal--use-script" : ""} ${modalClasses}`}>
+        <Button primaryStyle classes="open-modal" label={openLabel} onClick={this.handleOpen}/>
         {this.state.isOpen === true ? modalContent() : null}
       </div>
     );
@@ -98,7 +98,8 @@ Modal.propTypes = {
   heading: string,
   onlyNotify: bool,
   openLabel: string,
-  openWithScript: bool
+  openWithScript: bool,
+  useOpenScript: bool
 }
 
 export default Modal;

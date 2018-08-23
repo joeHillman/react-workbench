@@ -1,7 +1,7 @@
 # Component - JS 15 Board
 
-The button component is functional and includes 0 pieces of state and 4 props.
+The static JS15 board for styling purposes.
+It maps over object keys to create the puzzle.
+The same is done on the game component, but the styling was done here in isolation.
 
-Below is the link to the file that powers this component.
-
-[JS 15 Board]()
+No link provided here as you can look at the game component.

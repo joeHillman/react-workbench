@@ -1,0 +1,76 @@
+.js-15-game {
+  .game-controls {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+
+    .pause-modal,
+    .reset-modal {
+      margin-bottom: 10px;
+    }
+
+    .movement {
+      margin-right: auto;
+
+      button {
+        background: none #eee;
+        border: 1px solid #333;
+        height: 79px;
+        width: 79px;
+
+        &:hover,
+        &:focus {
+          background: #333;
+          color: white;
+          outline: none;
+        }
+
+        &:disabled {
+          background: none white;
+          color: #ccc;
+        }
+
+        & + button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.js-15-board {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.js-15-tile {
+  width: 25%;
+  height: 100px;
+  box-sizing: border-box;
+  text-align: center;
+  background: #f3f3f3;
+  border: 1px solid #333;
+  position: relative;
+
+  .content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  & + .js-15-tile {
+    border-left-width: 0;
+  }
+
+  &:nth-child(n+5) {
+    border-top-width: 0;
+  }
+
+  &:nth-of-type(4n+1) {
+    border-left-width: 1px;
+  }
+
+  &.hide {
+    text-indent: 9999px;
+  }
+}

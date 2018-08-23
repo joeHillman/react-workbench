@@ -12,7 +12,7 @@ storiesOf("Components/Modals", module)
   .add("Simple Notification and Dismiss", withNotes(Notes)(() => {
     return (
       <div>
-        <Modal onlyNotify openWithScript={false} openLabel="Open Notification" confirmModal={action("Run Alert Confirm Function")} bodyString="Simple notification with dismissal."/>
+        <Modal modalClasses="this-class" onlyNotify openWithScript={false} openLabel="Open Notification" confirmModal={action("Run Alert Confirm Function")} bodyString="Simple notification with dismissal."/>
       </div>
     )
   }))
