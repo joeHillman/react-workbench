@@ -7,4 +7,4 @@ The required prop is for the tile number and expects a number.
 
 Below is the link to the file that powers this component.
 
-[JS 15 Tile]()
+[JS 15 Tile](https://github.com/joeHillman/react-workbench/blob/master/src/projects/JS15Game/JS15Tile.js)

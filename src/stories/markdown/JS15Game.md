@@ -26,7 +26,6 @@ I had found a few ways to go about this.
 * [Solvability Article](https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html)
 * [Sovability Article](http://mathworld.wolfram.com/15Puzzle.html)
 
-
 Below is the link to the file that powers this component.
 
-[JS 15 Game]()
+[JS 15 Game](https://github.com/joeHillman/react-workbench/blob/master/src/projects/JS15Game/JS15Game.js)
