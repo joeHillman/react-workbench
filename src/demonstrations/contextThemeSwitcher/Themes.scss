@@ -1,0 +1,34 @@
+.button {
+  &--structure {
+    padding: 5px;
+    font-size: 14px;
+  }
+}
+
+.default {
+  &--skin {
+    background: #333;
+    color: white;
+  }
+}
+
+.red {
+  &--skin {
+    background: none red;
+    color: green;
+  }
+}
+
+.blue {
+  &--skin {
+    background: none blue;
+    color: yellow;
+  }
+}
+
+.orange {
+  &--skin {
+    background: orange;
+    color: indigo
+  }
+}
