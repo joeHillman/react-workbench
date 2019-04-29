@@ -1,0 +1,31 @@
+Comments Module
+
+Network Container
+-- Comments Container - Showing/Hiding Sorting Comment Count
+--- Show/Hide Comments List
+--- Sort Options
+--- Comments List
+---- Comment
+----- Content
+------ Like Count
+------ Block
+------ Reported
+------ Replies
+----- Like Dislike Reply Report Block Buttons
+----- Reply Form
+----- Report Form
+----- Block Form
+----- Reply
+------ Like Count
+------ Content
+------ Blocked
+---- Pagination
+
+Comments to use context to pass around the functions... ???
+Comment list to house mapped comments
+
+## Comment body to house comment and comment actions...
+
+Network container to hold network requests...
+Comments container to hold comments and to stage changes for network container...
+## Comments container to provide comment list with comments array...
