@@ -3,7 +3,7 @@ import SortControls from "./SortControls";
 import CommentList from "./CommentList";
 import { ReplySkeleton } from "./ReplySkeleton";
 import { array, string } from "prop-types";
-import { CommentsProvider, CommentsConsumer } from "./CommentsContext";
+import { CommentsProvider } from "./CommentsContext";
 
 class CommentsContainer extends Component {
   constructor(props) {
