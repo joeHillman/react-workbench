@@ -2,23 +2,24 @@ import React, { Component, PureComponent } from "react";
 import SingleComment from "./SingleComment";
 import CommentBody from "./CommentBody";
 import { array, func, string } from "prop-types";
+import { CommentsConsumer } from "./CommentsContext";
 
 class CommentList extends PureComponent {
 
-  constructCommentList = ({ role, handleReplySubmit, handleBlockSubmit, handleReportSubmit, commentsArray }) => {
-    let commentList = commentsArray.map((item, index) => {
+  constructCommentList = (commentContext) => {
+    let commentList = commentContext.commentsArray.map((item, index) => {
       let commentMarker = "comment" + index;
       return (
-        <div>
+          <div>
             <CommentBody
               key={'comment' + index}
-              role={role}
+              role={commentContext.role}
               content={item.content}
               likeCount={item.likeCount}
               date={item.date}
-              handleReplySubmit={handleReplySubmit}
-              handleBlockSubmit={handleBlockSubmit}
-              handleReportSubmit={handleReportSubmit}
+              handleReplySubmit={commentContext.handleReplySubmit}
+              // handleBlockSubmit={handleBlockSubmit}
+              // handleReportSubmit={handleReportSubmit}
               commentKey={item.key}
               parentKey={item.parent}
               isBlocked={item.blocked}
@@ -29,12 +30,12 @@ class CommentList extends PureComponent {
               return (
                 <CommentBody
                   key={commentMarker + 'reply' + index}
-                  role={role}
+                  role={commentContext.role}
                   content={item.content}
                   likeCount={item.likeCount}
                   date={item.date}
-                  handleBlockSubmit={handleBlockSubmit}
-                  handleReportSubmit={handleReportSubmit}
+                  // handleBlockSubmit={handleBlockSubmit}
+                  // handleReportSubmit={handleReportSubmit}
                   commentKey={item.key}
                   parentKey={item.parent}
                   isReply={true}
@@ -52,7 +53,11 @@ class CommentList extends PureComponent {
 
   render() {
     return (
-      <div>{this.constructCommentList(this.props)}</div>
+      <CommentsConsumer>
+      {(context) => { return (
+        <div>{this.constructCommentList(context)}</div>
+      )}}
+      </CommentsConsumer>
     );
   }
 }

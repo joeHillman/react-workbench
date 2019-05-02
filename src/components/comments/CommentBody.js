@@ -5,7 +5,7 @@ import { array, bool, func, number, string } from "prop-types";
 
 class CommentBody extends Component {
   render() {
-    const { 
+    const {
       commentsArray,
       content,
       date,
@@ -13,9 +13,9 @@ class CommentBody extends Component {
       isBlocked,
       isReported,
       role,
-      handleReplySubmit,
-      handleBlockSubmit,
-      handleReportSubmit,
+      // handleReplySubmit,
+      // handleBlockSubmit,
+      // handleReportSubmit,
       commentKey,
       parentKey,
       isReply
@@ -30,9 +30,8 @@ class CommentBody extends Component {
         <CommentActions
           role={role}
           likeCount={likeCount}
-          handleReplySubmit={handleReplySubmit}
-          handleBlockSubmit={handleBlockSubmit}
-          handleReportSubmit={handleReportSubmit}
+          // handleBlockSubmit={handleBlockSubmit}
+          // handleReportSubmit={handleReportSubmit}
           commentKey={commentKey}
           parentKey={parentKey}
           isReply={isReply}

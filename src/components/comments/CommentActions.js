@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ActionsForm from "./ActionsForm";
 import { bool, func, number, string } from "prop-types";
+import { CommentsConsumer } from "./CommentsContext";
 
 class CommentActions extends Component {
   constructor(props) {
@@ -55,8 +56,8 @@ class CommentActions extends Component {
 
   render() {
     const { handleReplySubmit, commentKey, parentKey, isBlocked, role, handleReportSubmit, isReported, isReply, handleBlockSubmit } = this.props;
-    return (
-      <div>
+    return (<CommentsConsumer>
+      {(context) => { return (<div>
         <button type="button" onClick={this.handleDislike} disabled={(this.state.likeability === null) || this.state.likeability ? false : true}>-</button>
         <span>{this.state.likeCount}</span>
         <button type="button" onClick={this.handleLike} disabled={(this.state.likeability === null) || !this.state.likeability ? false : true}>+</button>
@@ -70,7 +71,7 @@ class CommentActions extends Component {
             defaultValue="Say something meaningful and witty!"
             id="replyForm"
             label="Reply Form"
-            handleReplySubmit={handleReplySubmit}
+            handleReplySubmit={context.handleReplySubmit}
             commentKey={commentKey}
             parentKey={parentKey}
             isBlocked={isBlocked}
@@ -83,7 +84,7 @@ class CommentActions extends Component {
             defaultValue="Why are we reporting?"
             id="reportForm"
             label="Report Form"
-            handleReportSubmit={handleReportSubmit}
+            handleReportSubmit={context.handleReportSubmit}
             commentKey={commentKey}
             parentKey={parentKey}
             isBlocked={isBlocked}
@@ -97,14 +98,15 @@ class CommentActions extends Component {
             defaultValue="Reason..."
             id="blockForm"
             label="Block Form"
-            handleBlockSubmit={handleBlockSubmit}
+            handleBlockSubmit={context.handleBlockSubmit}
             commentKey={commentKey}
             parentKey={parentKey}
             isBlocked={isBlocked}
             role={role}
           /> : null}
       </div>
-    );
+    )}}
+    </CommentsConsumer>);
   }
 }
 

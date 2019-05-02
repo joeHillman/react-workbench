@@ -3,6 +3,7 @@ import SortControls from "./SortControls";
 import CommentList from "./CommentList";
 import { ReplySkeleton } from "./ReplySkeleton";
 import { array, string } from "prop-types";
+import { CommentsProvider, CommentsConsumer } from "./CommentsContext";
 
 class CommentsContainer extends Component {
   constructor(props){
@@ -18,6 +19,16 @@ class CommentsContainer extends Component {
   componentWillMount() {
     this.setState({ commentsArray: this.props.commentsArray, role: this.props.role })
   }
+
+ buildContextObj = () => {
+   return {
+     commentsArray: this.state.commentsArray,
+     handleReplySubmit: this.handleReplySubmit,
+     handleBlockSubmit: this.handleBlockSubmit,
+     handleReportSubmit: this.handleReportSubmit,
+     role: this.state.role
+   }
+ }
 
   handleShowHide = () => {
     this.setState(prevState => ({
@@ -99,7 +110,11 @@ class CommentsContainer extends Component {
       <div>
         <SortControls onClick={this.handleSort} activeSort={this.state.sortBy}/>
         <button type="button" onClick={this.handleShowHide}>{this.state.commentsHidden ? "Show Comments" : "Hide Comments"}</button>
-        {this.state.commentsHidden ? <CommentList role={this.state.role} commentsArray={this.state.commentsArray} handleReplySubmit={this.handleReplySubmit} handleBlockSubmit={this.handleBlockSubmit} handleReportSubmit={this.handleReportSubmit}/> : null}
+        {this.state.commentsHidden
+          ? <CommentsProvider value={this.buildContextObj()}>
+              <CommentList role={this.state.role} handleReplySubmit={this.handleReplySubmit} handleBlockSubmit={this.handleBlockSubmit} handleReportSubmit={this.handleReportSubmit}/>
+            </CommentsProvider>
+          : null}
       </div>
     );
   }
