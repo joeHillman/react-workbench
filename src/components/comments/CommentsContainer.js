@@ -6,7 +6,7 @@ import { array, string } from "prop-types";
 import { CommentsProvider, CommentsConsumer } from "./CommentsContext";
 
 class CommentsContainer extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       commentsHidden: true,

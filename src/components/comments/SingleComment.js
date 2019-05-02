@@ -1,12 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import { bool, string } from "prop-types";
 
-class SingleComment extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const { content, date, isBlocked } = this.props;
+const SingleComment = ({ content, date, isBlocked }) => {
     return (<Fragment>
       {!isBlocked ?
         <div>{content}: {date}</div> :
@@ -14,7 +9,6 @@ class SingleComment extends Component {
       }
       </Fragment>
     );
-  }
 }
 
 SingleComment.propTypes = {

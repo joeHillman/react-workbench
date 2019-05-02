@@ -1,12 +1,12 @@
-import React, { Component, PureComponent } from "react";
+import React from "react";
 import SingleComment from "./SingleComment";
 import CommentBody from "./CommentBody";
-import { array, func, string } from "prop-types";
+import { array, string } from "prop-types";
 import { CommentsConsumer } from "./CommentsContext";
 
-class CommentList extends PureComponent {
+const CommentList = () => {
 
-  constructCommentList = (commentContext) => {
+  const constructCommentList = (commentContext) => {
     let commentList = commentContext.commentsArray.map((item, index) => {
       let commentMarker = "comment" + index;
       return (
@@ -18,8 +18,6 @@ class CommentList extends PureComponent {
               likeCount={item.likeCount}
               date={item.date}
               handleReplySubmit={commentContext.handleReplySubmit}
-              // handleBlockSubmit={handleBlockSubmit}
-              // handleReportSubmit={handleReportSubmit}
               commentKey={item.key}
               parentKey={item.parent}
               isBlocked={item.blocked}
@@ -34,8 +32,6 @@ class CommentList extends PureComponent {
                   content={item.content}
                   likeCount={item.likeCount}
                   date={item.date}
-                  // handleBlockSubmit={handleBlockSubmit}
-                  // handleReportSubmit={handleReportSubmit}
                   commentKey={item.key}
                   parentKey={item.parent}
                   isReply={true}
@@ -51,22 +47,17 @@ class CommentList extends PureComponent {
     return commentList;
   }
 
-  render() {
     return (
       <CommentsConsumer>
       {(context) => { return (
-        <div>{this.constructCommentList(context)}</div>
+        <div>{constructCommentList(context)}</div>
       )}}
       </CommentsConsumer>
     );
-  }
 }
 
 CommentList.propTypes = {
   commentsArray: array,
-  handleBlockSubmit: func,
-  handleReplySubmit: func,
-  handleReportSubmit: func,
   role: string,
 }
 
