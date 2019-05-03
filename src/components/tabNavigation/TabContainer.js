@@ -8,7 +8,26 @@ class TabContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: 1
+      activeTab: 1,
+      isTabbingBackwards: false
+    }
+  }
+
+  handleKeyDown = (e) => {
+    console.log(e.keyCode, "KEYCODE");
+    console.log(e.target.classList.values, "CLASSES");
+    if(e.keyCode === 16) {
+      this.setState((prevState) => ({
+        isTabbingBackwards: !prevState.isTabbingBackwards
+      }))
+    }
+  }
+
+  handleKeyUp = (e) => {
+    if(e.keyCode === 16) {
+      this.setState((prevState) => ({
+        isTabbingBackwards: !prevState.isTabbingBackwards
+      }))
     }
   }
 
@@ -21,7 +40,16 @@ class TabContainer extends Component {
         item.onClick( index );
         this.setState({ activeTab: index + 1 });
       }
-      return (<Tab label={item.label} onClick={() => activeMarker(index)} key={index} isActive={this.state.activeTab === (index + 1)}/>)
+      return (<Tab
+        label={item.label}
+        onClick={() => activeMarker(index)}
+        key={index}
+        isActive={this.state.activeTab === (index + 1)}
+        isFirst={index === 0}
+        isLast={index === (contentTabs.length -1)}
+        onKeyDown={this.handleKeyDown}
+        onKeyUp={this.handleKeyUp}
+      />)
     });
     return {theseTabs: theseTabs, contentTabs: contentTabs};
   }
