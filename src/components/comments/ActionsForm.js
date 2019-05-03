@@ -7,12 +7,32 @@ class ActionsForm extends Component {
     this.state = {
       content: "",
     }
+    this.controlRef = React.createRef();
     this.formElementRef = React.createRef();
   }
 
   componentDidMount(){
-    this.formElementRef.current.focus();
+    this.controlRef.current.focus();
+    document.addEventListener('click', this.handleClickAway)
   }
+
+  componentWillUnmount(){
+    document.removeEventListener('click', this.handleClickAway)
+  }
+
+  handleClickAway = (event) => {
+    if(!this.formElementRef.current.contains(event.target)){
+      this.props.handleCancel();
+    }
+  }
+
+  // notifyBlur = () => {
+  //   // change name of this method
+  //   // move this method to keypress - tab
+  //   // store blur artifact in state
+  //   // could be combination of blur, focus, and keyup
+  //   console.log("FOMR HAS BLURRED");
+  // }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +59,7 @@ class ActionsForm extends Component {
     return (
         <Fragment>
         <label htmlFor={id}>Reason: </label>
-        <select id={id} name={name} onChange={this.handleOnChange} ref={!isReported && this.formElementRef} disabled={isReported}>
+        <select id={id} name={name} onChange={this.handleOnChange} ref={!isReported && this.controlRef} disabled={isReported}>
           {isReported
             ? <option>This comment has already been reported and is under review.</option>
             : <Fragment>
@@ -49,7 +69,7 @@ class ActionsForm extends Component {
             </Fragment>
           }
         </select>
-        <button type="button" onClick={handleCancel} ref={isReported && this.formElementRef}>Cancel</button>
+        <button type="button" onClick={handleCancel} ref={isReported && this.controlRef}>Cancel</button>
         <button type="submit" onClick={this.handleSubmit} disabled={isReported}>Submit</button>
         </Fragment>
     )
@@ -58,18 +78,16 @@ class ActionsForm extends Component {
   render() {
     const { defaultValue, handleCancel, id, isBlocked, label, name, role } = this.props;
     return (
-      <div>
-        <form>
-          {name === "reportForm" ?
-          this.renderReportForm(this.props) :
-          <Fragment>
-            <textarea id={id} name={name} onChange={this.handleOnChange} ref={this.formElementRef} defaultValue={defaultValue}></textarea>
-            <button type="button" onClick={handleCancel}>Cancel</button>
-            <button type="submit" onClick={this.handleSubmit}>Submit</button>
-          </Fragment>
-          }
-        </form>
-      </div>
+      <form className="actions-form" ref={this.formElementRef}>
+        {name === "reportForm" ?
+        this.renderReportForm(this.props) :
+        <Fragment>
+          <textarea id={id} name={name} onChange={this.handleOnChange} ref={this.controlRef} defaultValue={defaultValue}></textarea>
+          <button type="button" onClick={handleCancel}>Cancel</button>
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
+        </Fragment>
+        }
+      </form>
     );
   }
 }
