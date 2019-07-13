@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Star Wars Character Selection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <div class="app-root">
+      <div class="success"><button type="button" onclick="closeSuccessMessage()" class="msg-close msg-success"><span class="sr-only">Close</span>X</button> <span class="msg-string">Your favorite character has been successfully submitted!</span></div>
+      <div class="error"><button type="button" onclick="closeErrorMessage()" class="msg-close msg-failure"><span class="sr-only">Close</span>X</button> <span class="msg-string">There was an error in your submission, please try again.</span></div>
+      <form method="post" id="favorite-character" class=" favorite-character bg-color-default">
+        <ul class="form-controls">
+          <li>
+            <label class="character-label" for="character-select">Choose a character:</label>
+            <select onchange="selectCharacter(this.options[this.selectedIndex])" class="character-select" id="character-select" required autofocus>
+              <option disabled selected value="Mr. Green" data-eyes="none">Choose a character</option>
+            </select>
+          </li>
+          <li>
+            <button class="character-submit" type="submit" onclick="submit()">Submit</button>
+          </li>
+        </ul>
+      </form>
+    <div>
+  <script src="./scripts.js"  type="text/javascript"></script>
+  </body>
+</html>

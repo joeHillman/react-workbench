@@ -5,3 +5,10 @@
 .demo-render-props .c-table {
   width: 100%;
 }
+
+.character-submit.toggle-failure {
+  position: absolute;
+  left: 10px;
+  width: 200px;
+  bottom: 10px;
+}

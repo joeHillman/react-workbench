@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app-root {
+  position: relative;
+  font-family: sans-serif;
+}
+
+.favorite-character {
+  width: 300px;
+  color: #333;
+  margin: 0 auto;
+  padding: 5px;
+  background: none #eee;
+  transition: background-color 0.5s ease-out;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.form-controls {
+  list-style-type: none;
+  padding: 15px;
+  margin: 0;
+  background: none white;
+}
+
+.character-select,
+.character-submit {
+  width: 100%;
+}
+
+.character-select {
+  margin-top: 5px;
+  padding: 15px;
+}
+
+.character-submit {
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.success,
+.error {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.success {
+  background: none #027029;
+}
+
+.error {
+  background: none #700208;
+}
+
+.msg-close,
+.character-submit {
+  border: 1px solid #ccc;
+  background: none #eee;
+  border-radius: 2px;
+}
+
+.msg-close {
+  padding: 10px;
+  line-height: 1;
+}
+
+.msg-string {
+  margin-left: 15px;
+  color: white;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.submission-failed .error,
+.submission-successful .success {
+  display: block;
+}
