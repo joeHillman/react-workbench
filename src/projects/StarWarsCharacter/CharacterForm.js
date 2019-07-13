@@ -12,7 +12,6 @@ class CharacterForm extends PureComponent {
     }
   }
 
-
   getCharacters = (pages) => {
     const characters = [];
     // could map over but we dont need the array the map would return,
@@ -38,8 +37,7 @@ class CharacterForm extends PureComponent {
   }
 
   populateCharacters = (arr) => {
-     const options = arr.map((item, index) => {return (<option onClick={() => console.log("CLICK")} value={item.name} key={index} data-eyes={item.eye_color}>{item.name}</option>)})
-     console.log(options, "OPTIONS");
+     const options = arr.map((item, index) => {return (<option value={item.name} key={index} data-eyes={item.eye_color}>{item.name}</option>)})
      return options;
   }
 
@@ -86,14 +84,12 @@ class CharacterForm extends PureComponent {
   }
 
   render() {
-    const style = {
-      backgroundColor: this.state.bgColor,
-    }
+    const style = { backgroundColor: this.state.bgColor }
 
     return (
       <div className="app-root">
-        <div class="success"><button type="button" onClick={this.closeSuccessMessage} class="msg-close msg-success"><span class="sr-only">Close</span>X</button> <span class="msg-string">Your favorite character has been successfully submitted!</span></div>
-        <div class="error"><button type="button" onClick={this.closeErrorMessage} class="msg-close msg-failure"><span class="sr-only">Close</span>X</button> <span class="msg-string">There was an error in your submission, please try again.</span></div>
+        <div className="success"><button type="button" onClick={this.closeSuccessMessage} className="msg-close msg-success"><span className="sr-only">Close</span>X</button> <span className="msg-string">Your favorite character has been successfully submitted!</span></div>
+        <div className="error"><button type="button" onClick={this.closeErrorMessage} className="msg-close msg-failure"><span className="sr-only">Close</span>X</button> <span className="msg-string">There was an error in your submission, please try again.</span></div>
 
         <form  style={style} method="post" id="favorite-character" className=" favorite-character bg-color-default">
           <ul className="form-controls">
