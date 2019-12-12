@@ -1,7 +1,7 @@
 {
   "name": "react-workbench",
   "version": "0.1.0",
-  "description": "workWidgets",
+  "description": "WebAudio",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
