@@ -4,13 +4,13 @@ import CommentBody from "./CommentBody";
 import { array, string } from "prop-types";
 import { CommentsConsumer } from "./CommentsContext";
 
-const CommentList = () => {
+const CommentList = ({ handleLikeAction }) => {
 
   const constructCommentList = (commentContext) => {
     let commentList = commentContext.commentsArray.map((item, index) => {
       let commentMarker = "comment" + index;
       return (
-          <div>
+          <div className="comments__list">
             <CommentBody
               key={'comment' + index}
               role={commentContext.role}
@@ -22,8 +22,8 @@ const CommentList = () => {
               parentKey={item.parent}
               isBlocked={item.blocked}
               isReported={item.reported}
+              handleLikeAction={handleLikeAction}
             />
-          <div>
             {item.replies.map((item, index) => {
               return (
                 <CommentBody
@@ -37,10 +37,10 @@ const CommentList = () => {
                   isReply={true}
                   isBlocked={item.blocked}
                   isReported={item.reported}
+                  handleLikeAction={handleLikeAction}
                 />
               )
             })}
-          </div>
         </div>
       )
     });

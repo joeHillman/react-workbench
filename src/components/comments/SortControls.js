@@ -8,10 +8,10 @@ class SortControls extends Component {
   render() {
     const { activeSort, onClick } = this.props;
     return (
-      <div>
-        <button type="button" onClick={onClick} name="newest">Newest (Now sorting by {activeSort})</button>
-        <button type="button" onClick={onClick} name="oldest">Oldest (Now sorting by {activeSort})</button>
-        <button type="button" onClick={onClick} name="mostLiked">Most Liked (Now sorting by {activeSort})</button>
+      <div className="pure-button-group">
+        <button className="pure-button" type="button" onClick={onClick} name="newest">Newest (Now sorting by {activeSort})</button>
+        <button className="pure-button" type="button" onClick={onClick} name="oldest">Oldest (Now sorting by {activeSort})</button>
+        <button className="pure-button" type="button" onClick={onClick} name="mostLiked">Most Liked (Now sorting by {activeSort})</button>
       </div>
     );
   }

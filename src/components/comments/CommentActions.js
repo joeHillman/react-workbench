@@ -19,7 +19,7 @@ class CommentActions extends Component {
       likeability: true,
       likeCountChange: 1,
       likeCount: Number(prevState.likeCount) + 1,
-    }))
+    }), this.props.handleLikeAction(this.props.parentKey, this.props.commentKey, 1))
   }
 
   handleDislike = () => {
@@ -27,7 +27,7 @@ class CommentActions extends Component {
       likeability: false,
       likeCountChange: -1,
       likeCount: Number(prevState.likeCount) - 1,
-    }))
+    }), this.props.handleLikeAction(this.props.parentKey, this.props.commentKey, -1))
   }
 
   handleReply = () => {
@@ -55,15 +55,15 @@ class CommentActions extends Component {
   }
 
   render() {
-    const { handleReplySubmit, commentKey, parentKey, isBlocked, role, handleReportSubmit, isReported, isReply, handleBlockSubmit } = this.props;
+    const { commentKey, parentKey, isBlocked, role, isReported, isReply } = this.props;
     return (<CommentsConsumer>
-      {(context) => { return (<div>
-        <button type="button" onClick={this.handleDislike} disabled={(this.state.likeability === null) || this.state.likeability ? false : true}>-</button>
+      {(context) => { return (<div className="comments__actions">
+        <button className={`pure-button ${(this.state.likeability === null) || this.state.likeability ? '' : 'pure-button-disabled'} `} type="button" onClick={this.handleDislike} disabled={(this.state.likeability === null) || this.state.likeability ? false : true}>-</button>
         <span>{this.state.likeCount}</span>
-        <button type="button" onClick={this.handleLike} disabled={(this.state.likeability === null) || !this.state.likeability ? false : true}>+</button>
-        {!isReply && !isBlocked && <button type="button" onClick={this.handleReply}>Reply</button>}
-        {role === "moderator" && <button type="button" onClick={this.handleBlock}>Block</button>}
-        <button type="button" onClick={this.handleReport}>Report</button>
+        <button className={`pure-button ${(this.state.likeability === null) || !this.state.likeability ? '' : 'pure-button-disabled'} `} type="button" onClick={this.handleLike} disabled={(this.state.likeability === null) || !this.state.likeability ? false : true}>+</button>
+        {!isReply && !isBlocked && <button className="pure-button" type="button" onClick={this.handleReply}>Reply</button>}
+        {role === "moderator" && <button className="pure-button" type="button" onClick={this.handleBlock}>Block</button>}
+        <button className="pure-button" type="button" onClick={this.handleReport}>Report</button>
         {this.state.actionState === "reply" ?
           <ActionsForm
             handleCancel={this.handleCancel}

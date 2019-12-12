@@ -7,6 +7,7 @@ const CommentBody = ({
   commentKey,
   content,
   date,
+  handleLikeAction,
   isBlocked,
   isReply,
   isReported,
@@ -15,7 +16,7 @@ const CommentBody = ({
   role,
 }) => {
   return (
-    <div>
+    <div className={`comments__container${isReply ? "--reply" : ""} `}>
       <SingleComment
         content={content}
         date={date}
@@ -29,6 +30,7 @@ const CommentBody = ({
         isReply={isReply}
         isBlocked={isBlocked}
         isReported={isReported}
+        handleLikeAction={handleLikeAction}
       />
     </div>
   );

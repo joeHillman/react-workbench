@@ -4,7 +4,7 @@ import { bool, string } from "prop-types";
 const SingleComment = ({ content, date, isBlocked }) => {
     return (<Fragment>
       {!isBlocked ?
-        <div>{content}: {date}</div> :
+        <div className="comments__body">{content}: {date}</div> :
         <div>This comment has been blocked.</div>
       }
       </Fragment>

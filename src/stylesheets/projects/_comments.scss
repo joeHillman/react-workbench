@@ -1,0 +1,20 @@
+.comments {
+  &__list {
+
+  }
+
+  &__container {
+    padding: 10px;
+    &--reply {
+      padding: 10px 10px 10px 20px;
+    }
+  }
+
+  &__body {
+
+  }
+
+  &__actions {
+    margin-top: 10px;
+  }
+}

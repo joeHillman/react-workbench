@@ -69,8 +69,8 @@ class ActionsForm extends Component {
             </Fragment>
           }
         </select>
-        <button type="button" onClick={handleCancel} ref={isReported && this.controlRef}>Cancel</button>
-        <button type="submit" onClick={this.handleSubmit} disabled={isReported}>Submit</button>
+        <button className="pure-button" type="button" onClick={handleCancel} ref={isReported && this.controlRef}>Cancel</button>
+        <button className="pure-button" type="submit" onClick={this.handleSubmit} disabled={isReported}>Submit</button>
         </Fragment>
     )
   }
@@ -83,8 +83,8 @@ class ActionsForm extends Component {
         this.renderReportForm(this.props) :
         <Fragment>
           <textarea id={id} name={name} onChange={this.handleOnChange} ref={this.controlRef} defaultValue={defaultValue}></textarea>
-          <button type="button" onClick={handleCancel}>Cancel</button>
-          <button type="submit" onClick={this.handleSubmit}>Submit</button>
+          <button className="pure-button" type="button" onClick={handleCancel}>Cancel</button>
+          <button className="pure-button" type="submit" onClick={this.handleSubmit}>Submit</button>
         </Fragment>
         }
       </form>

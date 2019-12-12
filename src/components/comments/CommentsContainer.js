@@ -26,6 +26,7 @@ class CommentsContainer extends Component {
      handleReplySubmit: this.handleReplySubmit,
      handleBlockSubmit: this.handleBlockSubmit,
      handleReportSubmit: this.handleReportSubmit,
+     handleLikeAction: this.handleLikeAction,
      role: this.state.role
    }
  }
@@ -92,6 +93,36 @@ class CommentsContainer extends Component {
     this.setState({ commentsArray: updatedComments(commentsCopy) })
   }
 
+  handleLikeAction = (parent, key, likeCountChange) => {
+    console.log("HANDLE LIKE");
+    let commentsCopy = this.state.commentsArray.slice();
+    let updatedComments = (arr) => {
+      arr.map(item => {
+        if(parent === null && item.key === key) {
+          console.log(likeCountChange, "CAHNGE");
+          if(likeCountChange === 1) {
+            item.likeCount += 1;
+          } else {
+            item.likeCount -= 1
+          }
+
+        } else {
+          item.replies.map((item, index) => {
+            if(item.parent === parent && item.key === key) {
+              if(likeCountChange === 1) {
+                item.likeCount += 1;
+              } else {
+                item.likeCount -= 1;
+              }
+            }
+          })
+        }
+      })
+      return arr;
+    }
+    this.setState({ commentsArray: updatedComments(commentsCopy) })
+  }
+
   handleSort = (e) => {
     let commentsArrayCopy = this.props.commentsArray;
     switch(e.target.name) {
@@ -107,12 +138,12 @@ class CommentsContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="comments">
+        <button className="pure-button" type="button" onClick={this.handleShowHide}>{this.state.commentsHidden ? "Show Comments" : "Hide Comments"}</button>
         <SortControls onClick={this.handleSort} activeSort={this.state.sortBy}/>
-        <button type="button" onClick={this.handleShowHide}>{this.state.commentsHidden ? "Show Comments" : "Hide Comments"}</button>
         {this.state.commentsHidden
           ? <CommentsProvider value={this.buildContextObj()}>
-              <CommentList role={this.state.role} handleReplySubmit={this.handleReplySubmit} handleBlockSubmit={this.handleBlockSubmit} handleReportSubmit={this.handleReportSubmit}/>
+              <CommentList role={this.state.role} handleLikeAction={this.handleLikeAction}/>
             </CommentsProvider>
           : null}
       </div>
