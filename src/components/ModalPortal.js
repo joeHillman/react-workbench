@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import PropTypes, { func, string } from "prop-types";
 import Button from "./Button";
 import ReactPortal from "./ReactPortal";
 
-class ModalPortal extends Component {
+class ModalPortal extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,8 +22,12 @@ class ModalPortal extends Component {
     this.toggleOpen();
   }
 
+  remoteDisable = () => {
+    return this.props.remoteDisable || false
+  }
+
   render() {
-    let { bodyString, children, heading, openLabel } = this.props;
+    let { bodyString, children, heading, openLabel, proceedLabel } = this.props;
 
     const modalContent = () => {
       return (
@@ -41,7 +45,7 @@ class ModalPortal extends Component {
             </p>
             <div className="c-modal__buttons">
               <Button label="Cancel" onClick={this.toggleOpen}/>
-              <Button primaryStyle label="Proceed" onClick={this.lastModalStep}/>
+              <Button primaryStyle label={proceedLabel || "Proceed"} onClick={this.lastModalStep} disabled={this.remoteDisable()}/>
             </div>
           </div>
         </div>
