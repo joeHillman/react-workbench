@@ -1,7 +1,7 @@
 {
   "name": "react-workbench",
   "version": "0.1.0",
-  "description": "GenericAdds",
+  "description": "GamingHall",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
