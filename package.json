@@ -53,8 +53,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "storybook": "start-storybook -c .storybook/dev -p 9009 -s public",
-    "build-storybook": "build-storybook -c .storybook/dev -s public -o docs"
+    "storybook": "start-storybook -c .storybook/ -p 9009 -s public",
+    "build-storybook": "build-storybook -c .storybook/ -s public -o docs"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.8",
@@ -73,7 +73,8 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "sass-loader": "^7.0.3",
     "storybook-addon-specifications": "^2.1.2",
-    "style-loader": "^0.21.0"
+    "style-loader": "^0.21.0",
+    "underscore": "^1.9.2"
   },
   "jest": {
     "collectCoverageFrom": [
